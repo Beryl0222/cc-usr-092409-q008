@@ -1,0 +1,9 @@
+{
+  "event_id": "092108-011-sample-001",
+  "event_type": "CLAIM_SUBMITTED",
+  "aggregate_type": "historical_claim",
+  "aggregate_id": "memorial_sculpture_review-001",
+  "occurred_at": "2026-09-20T18:00:00+08:00",
+  "version": 1,
+  "summary": "登记主题雕塑创作会审的首条领域记录"
+}
