@@ -20,19 +20,44 @@
       "type": "string",
       "enum": [
         "CLAIM_SUBMITTED",
-        "DESIGN_REVIEWED",
-        "MATERIAL_TESTED",
+        "CLAIM_CORRECTED",
+        "CLAIM_WITHDRAWN",
+        "EXPERT_OPINION_RECORDED",
+        "DESIGN_SUBMITTED",
+        "DESIGN_DECISION_RECORDED",
+        "COMPONENT_REGISTERED",
+        "COMPONENT_FROZEN",
+        "COMPONENT_UNFROZEN",
+        "WORK_ORDER_ISSUED",
+        "INSPECTION_RECORDED",
+        "QUARANTINE_RECORDED",
+        "CORRECTIVE_ACTION_RECORDED",
+        "COMPONENT_REWORK_STARTED",
+        "COMPONENT_REPLACED",
+        "BATCH_REGISTERED",
+        "COMPONENT_ASSIGNED_BATCH",
+        "MATERIAL_TEST_RECORDED",
+        "BATCH_QUARANTINED",
+        "PROPAGATION_HOLD_OPENED",
+        "DISPOSITION_CONFIRMED",
+        "HOLD_RESOLVED",
+        "RELEASE_REJECTED",
         "INSTALLATION_CLEARED",
-        "LABEL_RELEASED"
+        "LABEL_RELEASED",
+        "IDEMPOTENCY_RECORDED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
         "historical_claim",
+        "expert_opinion",
         "design_version",
+        "component",
         "fabrication_batch",
-        "installation_release"
+        "propagation_hold",
+        "installation_release",
+        "idempotency_record"
       ]
     },
     "aggregate_id": {
@@ -50,6 +75,10 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件载荷，结构随 event_type 而定；史实证据与艺术推断在载荷的 kind 字段分开标记。"
     }
   },
   "additionalProperties": true
