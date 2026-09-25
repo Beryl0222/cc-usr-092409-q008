@@ -20,8 +20,24 @@
       "type": "string",
       "enum": [
         "CLAIM_SUBMITTED",
+        "CLAIM_CORRECTED",
+        "CLAIM_RETRACTED",
+        "DESIGN_SUBMITTED",
         "DESIGN_REVIEWED",
+        "EXPERT_OPINION_RECORDED",
+        "COMPONENT_REGISTERED",
+        "COMPONENT_REASSIGNED",
+        "COMPONENT_STAGE_ADVANCED",
+        "COMPONENT_FROZEN",
+        "COMPONENT_RESUMED",
+        "COMPONENT_QUARANTINED",
+        "COMPONENT_CORRECTION_RECORDED",
+        "BATCH_REGISTERED",
         "MATERIAL_TESTED",
+        "BATCH_INVALIDATED",
+        "DISPOSITION_PROPOSED",
+        "DISPOSITION_CONFIRMED",
+        "DISPOSITION_RESOLVED",
         "INSTALLATION_CLEARED",
         "LABEL_RELEASED"
       ]
@@ -32,7 +48,9 @@
         "historical_claim",
         "design_version",
         "fabrication_batch",
-        "installation_release"
+        "installation_release",
+        "component",
+        "disposition"
       ]
     },
     "aggregate_id": {
@@ -45,11 +63,16 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "该聚合上事件的自然序号，接收后不可改写"
     },
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件业务内容；不同事件类型的字段见 src/domain.ts"
     }
   },
   "additionalProperties": true
